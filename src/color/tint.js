@@ -12,16 +12,19 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: tint(0.25, '#00f')
+ *   background: tint('0.25', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${tint(0.25, '#00f')};
+ *   background: ${tint('0.25', '#00f')};
  * `
  *
  * // CSS in JS Output
  *
  * element {
+ *   background: "#bfbfff";
  *   background: "#bfbfff";
  * }
  */

@@ -14,14 +14,12 @@ import curry from '../internalHelpers/_curry'
  * @example
  * // Styles as object usage
  * const styles = {
- *   background: mix(0.5, '#f00', '#00f')
  *   background: mix(0.25, '#f00', '#00f')
  *   background: mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
- *   background: ${mix(0.5, '#f00', '#00f')};
  *   background: ${mix(0.25, '#f00', '#00f')};
  *   background: ${mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')};
  * `
@@ -29,7 +27,6 @@ import curry from '../internalHelpers/_curry'
  * // CSS in JS Output
  *
  * element {
- *   background: "#7f007f";
  *   background: "#3f00bf";
  *   background: "rgba(63, 0, 191, 0.75)";
  * }

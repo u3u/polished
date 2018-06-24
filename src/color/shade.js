@@ -12,16 +12,19 @@ import curry from '../internalHelpers/_curry'
  * // Styles as object usage
  * const styles = {
  *   background: shade(0.25, '#00f')
+ *   background: shade('0.25', '#00f')
  * }
  *
  * // styled-components usage
  * const div = styled.div`
  *   background: ${shade(0.25, '#00f')};
+ *   background: ${shade('0.25', '#00f')};
  * `
  *
  * // CSS in JS Output
  *
  * element {
+ *   background: "#00003f";
  *   background: "#00003f";
  * }
  */
