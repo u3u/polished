@@ -6,9 +6,7 @@ import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Increases the intensity of a color. Its range is between 0 to 1. The first
- * argument of the saturate function is the amount by how much the color
- * intensity should be increased.
+ * Intensifies the provided color by increasing its saturation by the provided amount (between 0 and 1).
  *
  * @example
  * // Styles as object usage

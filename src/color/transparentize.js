@@ -5,8 +5,7 @@ import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
- *
+ * Decreases the opacity of the provided color, but the provided amount (between 0 and 1).
  *
  * @example
  * // Styles as object usage

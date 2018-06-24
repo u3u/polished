@@ -5,7 +5,7 @@ import parseToRGB from './parseToRgb'
 import type { RgbaColor } from '../types/color'
 
 /**
- * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+ * Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.
  *
  * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
  *

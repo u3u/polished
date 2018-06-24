@@ -3,7 +3,7 @@ import getLuminance from './getLuminance'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Selects black or white for best contrast depending on the luminosity of the given color.
+ * Returns `#000` or `#fff` for the best contrast given the luminosity of the provided color.
  * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
  *
  * @example

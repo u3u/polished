@@ -4,9 +4,9 @@ import mix from './mix'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Tints a color by mixing it with white. `tint` can produce
- * hue shifts, where as `lighten` manipulates the luminance channel and therefore
- * doesn't produce hue shifts.
+ * Tint the provided color by the provided percentage by mixing it with white.
+ *
+ * `tint` can produce hue shifts, where as `lighten` manipulates the luminance channel and thereforevdoesn't produce hue shifts.
  *
  * @example
  * // Styles as object usage

@@ -2,7 +2,7 @@
 import parseToRgb from './parseToRgb'
 
 /**
- * Returns a number (float) representing the luminance of a color.
+ * Returns a number (float) representing the luminance of the provided color.
  *
  * @example
  * // Styles as object usage

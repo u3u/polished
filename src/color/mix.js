@@ -5,7 +5,11 @@ import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
 /**
+<<<<<<< HEAD
  * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
+=======
+ * Mixes two provided colors together by calculating the average of each of the RGB components weighted towards the first color by the provided weight.
+>>>>>>> 1caa391... docs(color): Update color doc language
  *
  * @example
  * // Styles as object usage
@@ -47,7 +51,7 @@ function mix(
     alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1,
   }
 
-  // The formular is copied from the original Sass implementation:
+  // The formula is copied from the original Sass implementation:
   // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
   const alphaDelta = color1.alpha - color2.alpha
   const x = parseFloat(weight) * 2 - 1

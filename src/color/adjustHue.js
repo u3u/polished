@@ -5,9 +5,7 @@ import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Changes the hue of the color. Hue is a number between 0 to 360. The first
- * argument for adjustHue is the amount of degrees the color is rotated along
- * the color wheel.
+ * Adjusts the hue of the provided color by rotating the color wheel by the provided degree.
  *
  * @example
  * // Styles as object usage

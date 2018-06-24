@@ -4,7 +4,7 @@ import hslToHex from '../internalHelpers/_hslToHex'
 import type { HslColor } from '../types/color'
 
 /**
- * Returns a string value for the color. The returned result is the smallest possible hex notation.
+ * Returns a string value for the provided color. The returned result is the smallest possible hex notation.
  *
  * @example
  * // Styles as object usage

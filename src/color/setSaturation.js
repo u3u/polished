@@ -5,8 +5,7 @@ import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Sets the saturation of a color to the provided value. The lightness range can be
- * from 0 and 1.
+ * Sets the saturation of the provided color to the provided value (between 0 and 1).
  *
  * @example
  * // Styles as object usage

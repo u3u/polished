@@ -5,7 +5,7 @@ import hslToRgb from '../internalHelpers/_hslToRgb'
 import type { HslaColor } from '../types/color'
 
 /**
- * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+ * Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.
  *
  * @example
  * // Styles as object usage

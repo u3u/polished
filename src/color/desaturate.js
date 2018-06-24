@@ -6,9 +6,7 @@ import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Decreases the intensity of a color. Its range is between 0 to 1. The first
- * argument of the desaturate function is the amount by how much the color
- * intensity should be decreased.
+ * Decreases the saturation of the provided color by the provided amount (between 0 and 1).
  *
  * @example
  * // Styles as object usage

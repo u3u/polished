@@ -6,7 +6,7 @@ import guard from '../internalHelpers/_guard'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Returns a string value for the darkened color.
+ * Lightens the provided color by increasing its lightness by the provided amount (between 0 and 1).
  *
  * @example
  * // Styles as object usage

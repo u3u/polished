@@ -27,7 +27,7 @@ const isHsla = (color: Object): boolean => typeof color.hue === 'number'
 const errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.'
 
 /**
- * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
+ * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string for the provided color.
  * This util is useful in case you only know on runtime which color object is
  * used. Otherwise we recommend to rely on `rgb`, `rgba`, `hsl` or `hsla`.
  *

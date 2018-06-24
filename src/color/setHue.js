@@ -5,8 +5,7 @@ import toColorString from './toColorString'
 import curry from '../internalHelpers/_curry'
 
 /**
- * Sets the hue of a color to the provided value. The hue range can be
- * from 0 and 359.
+ * Sets the hue of the provided color to the provided value (between 0 and 359).
  *
  * @example
  * // Styles as object usage

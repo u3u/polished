@@ -5,9 +5,9 @@ import rgbToHsl from '../internalHelpers/_rgbToHsl'
 import type { HslColor, HslaColor } from '../types/color'
 
 /**
- * Returns an HslColor or HslaColor object. This utility function is only useful
- * if want to extract a color component. With the color util `toColorString` you
- * can convert a HslColor or HslaColor object back to a string.
+ * Returns an HslColor or HslaColor object for the provided color.
+ * This utility function is only useful if want to extract a color component.
+ * With the color util `toColorString` you can convert a HslColor or HslaColor object back to a string.
  *
  * @example
  * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1

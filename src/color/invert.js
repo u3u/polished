@@ -4,7 +4,7 @@ import parseToRgb from './parseToRgb'
 import toColorString from './toColorString'
 
 /**
- * Inverts the red, green and blue values of a color.
+ * Inverts the red, green and blue values of the provided color.
  *
  * @example
  * // Styles as object usage
