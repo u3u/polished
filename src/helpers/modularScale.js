@@ -45,6 +45,7 @@ type Ratio =
 
 /**
  * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -70,17 +71,23 @@ function modularScale(
   ratio?: Ratio = 'perfectFourth',
 ): string {
   if (typeof steps !== 'number') {
-    throw new Error('Please provide a number of steps to the modularScale helper.')
+    throw new Error(
+      'Please provide a number of steps to the modularScale helper.',
+    )
   }
   if (typeof ratio === 'string' && !ratioNames[ratio]) {
-    throw new Error('Please pass a number or one of the predefined scales to the modularScale helper as the ratio.')
+    throw new Error(
+      'Please pass a number or one of the predefined scales to the modularScale helper as the ratio.',
+    )
   }
 
   const realBase = typeof base === 'string' ? stripUnit(base) : base
   const realRatio = typeof ratio === 'string' ? ratioNames[ratio] : ratio
 
   if (typeof realBase === 'string') {
-    throw new Error(`Invalid value passed as base to modularScale, expected number or em string but got "${base}"`)
+    throw new Error(
+      `Invalid value passed as base to modularScale, expected number or em string but got "${base}"`,
+    )
   }
 
   return `${realBase * realRatio ** steps}em`

@@ -7,6 +7,7 @@ import pixelsto from '../internalHelpers/_pxto'
  * @function
  * @param {string|number} pxval
  * @param {string|number} [base='16px']
+ *
  * @example
  * // Styles as object usage
  * const styles = {
@@ -25,5 +26,7 @@ import pixelsto from '../internalHelpers/_pxto'
  * }
  */
 
-const em: (value: string | number, base?: string | number) => string = pixelsto('em')
+const em: (value: string | number, base?: string | number) => string = pixelsto(
+  'em',
+)
 export default em
