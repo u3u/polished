@@ -674,16 +674,6 @@
             
               
               <li><a
-                href='#modularscale'
-                class="">
-                modularScale
-                
-              </a>
-              
-              </li>
-            
-              
-              <li><a
                 href='#rem'
                 class="">
                 rem
@@ -2816,9 +2806,7 @@ div:</span> {
   </div>
   
 
-  <p>Changes the hue of the color. Hue is a number between 0 to 360. The first
-argument for adjustHue is the amount of degrees the color is rotated along
-the color wheel.</p>
+  <p>Adjusts the hue of the provided color by rotating the color wheel by the provided degree.</p>
 
 
   <div class='pre p1 fill-light mt0'>adjustHue(degree: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3040,7 +3028,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the darkened color.</p>
+  <p>Lightens the provided color by increasing its lightness by the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>darken(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3156,9 +3144,7 @@ element {
   </div>
   
 
-  <p>Decreases the intensity of a color. Its range is between 0 to 1. The first
-argument of the desaturate function is the amount by how much the color
-intensity should be decreased.</p>
+  <p>Decreases the saturation of the provided color by the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>desaturate(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3273,7 +3259,7 @@ element {
   </div>
   
 
-  <p>Returns a number (float) representing the luminance of a color.</p>
+  <p>Returns a number (float) representing the luminance of the provided color.</p>
 
 
   <div class='pre p1 fill-light mt0'>getLuminance(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
@@ -3384,7 +3370,7 @@ div {
   </div>
   
 
-  <p>Converts the color to a grayscale, by reducing its saturation to 0.</p>
+  <p>Converts the provided color to grayscale, by reducing its saturation to 0.</p>
 
 
   <div class='pre p1 fill-light mt0'>grayscale(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3491,7 +3477,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
+  <p>Returns a string value for the provided color. The returned result is the smallest possible hex notation.</p>
 
 
   <div class='pre p1 fill-light mt0'>hsl(value: (<a href="#hslcolor">HslColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3615,7 +3601,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
+  <p>Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.</p>
 
 
   <div class='pre p1 fill-light mt0'>hsla(value: (<a href="#hslacolor">HslaColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), saturation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lightness: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, alpha: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3750,7 +3736,7 @@ element {
   </div>
   
 
-  <p>Inverts the red, green and blue values of a color.</p>
+  <p>Inverts the red, green and blue values of the provided color.</p>
 
 
   <div class='pre p1 fill-light mt0'>invert(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3858,7 +3844,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the lightened color.</p>
+  <p>Lightens the provided color by increasing its lightness by the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>lighten(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -3974,14 +3960,10 @@ element {
   </div>
   
 
-  <p>Mixes two colors together by calculating the average of each of the RGB components.</p>
-<p>By default the weight is 0.5 meaning that half of the first color and half the second
-color should be used. Optionally the weight can be modified by providing a number
-as the first argument. 0.25 means that a quarter of the first color and three quarters
-of the second color should be used.</p>
+  <p>Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.</p>
 
 
-  <div class='pre p1 fill-light mt0'>mix(weight: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, otherColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  <div class='pre p1 fill-light mt0'>mix(weight: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, otherColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
     <p>
@@ -4004,8 +3986,7 @@ of the second color should be used.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>weight</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>
-            = <code>0.5</code>)</code>
+            <span class='code bold'>weight</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
 	    
           </div>
           
@@ -4057,14 +4038,12 @@ of the second color should be used.</p>
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
-  <span class="hljs-built_in">background</span>: mix(<span class="hljs-number">0.5</span>, <span class="hljs-string">'#f00'</span>, <span class="hljs-string">'#00f'</span>)
   <span class="hljs-built_in">background</span>: mix(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#f00'</span>, <span class="hljs-string">'#00f'</span>)
   <span class="hljs-built_in">background</span>: mix(<span class="hljs-string">'0.5'</span>, <span class="hljs-string">'rgba(255, 0, 0, 0.5)'</span>, <span class="hljs-string">'#00f'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
-  <span class="hljs-built_in">background</span>: ${mix(<span class="hljs-number">0.5</span>, <span class="hljs-string">'#f00'</span>, <span class="hljs-string">'#00f'</span>)};
   <span class="hljs-built_in">background</span>: ${mix(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#f00'</span>, <span class="hljs-string">'#00f'</span>)};
   <span class="hljs-built_in">background</span>: ${mix(<span class="hljs-string">'0.5'</span>, <span class="hljs-string">'rgba(255, 0, 0, 0.5)'</span>, <span class="hljs-string">'#00f'</span>)};
 `
@@ -4072,7 +4051,6 @@ of the second color should be used.</p>
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
-  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#7f007f"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"#3f00bf"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"rgba(63, 0, 191, 0.75)"</span>;
 }</pre>
@@ -4106,7 +4084,7 @@ element {
   </div>
   
 
-  <p>Increases the opacity of a color. Its range for the amount is between 0 to 1.</p>
+  <p>Adjusts the opacity (alpha) of the provided color by the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>opacify(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -4225,9 +4203,9 @@ element {
   </div>
   
 
-  <p>Returns an HslColor or HslaColor object. This utility function is only useful
-if want to extract a color component. With the color util <code>toColorString</code> you
-can convert a HslColor or HslaColor object back to a string.</p>
+  <p>Returns an HslColor or HslaColor object for the provided color.
+This utility function is only useful if want to extract a color component.
+With the color util <code>toColorString</code> you can convert a HslColor or HslaColor object back to a string.</p>
 
 
   <div class='pre p1 fill-light mt0'>parseToHsl(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="#hslcolor">HslColor</a> | <a href="#hslacolor">HslaColor</a>)</div>
@@ -4321,9 +4299,9 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
   </div>
   
 
-  <p>Returns an RgbColor or RgbaColor object. This utility function is only useful
-if want to extract a color component. With the color util <code>toColorString</code> you
-can convert a RgbColor or RgbaColor object back to a string.</p>
+  <p>Returns an RgbColor or RgbaColor object for the provided color.
+This utility function is only useful if want to extract a color component.
+With the color util <code>toColorString</code> you can convert a RgbColor or RgbaColor object back to a string.</p>
 
 
   <div class='pre p1 fill-light mt0'>parseToRgb(color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="#rgbcolor">RgbColor</a> | <a href="#rgbacolor">RgbaColor</a>)</div>
@@ -4417,7 +4395,7 @@ const color2 = 'hsla(<span class="hljs-number">210</span>, <span class="hljs-num
   </div>
   
 
-  <p>Selects black or white for best contrast depending on the luminosity of the given color.
+  <p>Returns <code>#000</code> or <code>#fff</code> for the best contrast given the luminosity of the provided color.
 Follows W3C specs for readability at <a href="https://www.w3.org/TR/WCAG20-TECHS/G18.html">https://www.w3.org/TR/WCAG20-TECHS/G18.html</a></p>
 
 
@@ -4529,7 +4507,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible hex notation.</p>
+  <p>Returns a string value for the provided color. The returned result is the smallest possible hex notation.</p>
 
 
   <div class='pre p1 fill-light mt0'>rgb(value: (<a href="#rgbcolor">RgbColor</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), green: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, blue: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -4653,7 +4631,7 @@ element {
   </div>
   
 
-  <p>Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.</p>
+  <p>Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.</p>
 <p>Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.</p>
 
 
@@ -4795,9 +4773,7 @@ element {
   </div>
   
 
-  <p>Increases the intensity of a color. Its range is between 0 to 1. The first
-argument of the saturate function is the amount by how much the color
-intensity should be increased.</p>
+  <p>Intensifies the provided color by increasing its saturation by the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>saturate(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -4913,8 +4889,7 @@ element {
   </div>
   
 
-  <p>Sets the hue of a color to the provided value. The hue range can be
-from 0 and 359.</p>
+  <p>Sets the hue of the provided color to the provided value (between 0 and 359).</p>
 
 
   <div class='pre p1 fill-light mt0'>setHue(hue: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5029,8 +5004,7 @@ element {
   </div>
   
 
-  <p>Sets the lightness of a color to the provided value. The lightness range can be
-from 0 and 1.</p>
+  <p>Sets the lightness of the provided color to the provided value (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>setLightness(lightness: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5145,8 +5119,7 @@ element {
   </div>
   
 
-  <p>Sets the saturation of a color to the provided value. The lightness range can be
-from 0 and 1.</p>
+  <p>Sets the saturation of the provided color to the provided value (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>setSaturation(saturation: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5261,9 +5234,8 @@ element {
   </div>
   
 
-  <p>Shades a color by mixing it with black. <code>shade</code> can produce
-hue shifts, where as <code>darken</code> manipulates the luminance channel and therefore
-doesn't produce hue shifts.</p>
+  <p>Shades the provided color by the provided percentage by mixing it with black.</p>
+<p><code>shade</code> can produce hue shifts, where as <code>darken</code> manipulates the luminance channel and therefore doesn't produce hue shifts.</p>
 
 
   <div class='pre p1 fill-light mt0'>shade(percentage: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5334,16 +5306,19 @@ doesn't produce hue shifts.</p>
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
   <span class="hljs-built_in">background</span>: shade(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#00f'</span>)
+  <span class="hljs-built_in">background</span>: shade(<span class="hljs-string">'0.25'</span>, <span class="hljs-string">'#00f'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
   <span class="hljs-built_in">background</span>: ${shade(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#00f'</span>)};
+  <span class="hljs-built_in">background</span>: ${shade(<span class="hljs-string">'0.25'</span>, <span class="hljs-string">'#00f'</span>)};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#00003f"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"#00003f"</span>;
 }</pre>
     
@@ -5376,9 +5351,8 @@ element {
   </div>
   
 
-  <p>Tints a color by mixing it with white. <code>tint</code> can produce
-hue shifts, where as <code>lighten</code> manipulates the luminance channel and therefore
-doesn't produce hue shifts.</p>
+  <p>Tint the provided color by the provided percentage by mixing it with white.</p>
+<p><code>tint</code> can produce hue shifts, where as <code>lighten</code> manipulates the luminance channel and thereforevdoesn't produce hue shifts.</p>
 
 
   <div class='pre p1 fill-light mt0'>tint(percentage: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -5449,16 +5423,19 @@ doesn't produce hue shifts.</p>
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
 <span class="hljs-keyword">const</span> styles = {
   <span class="hljs-built_in">background</span>: <span class="hljs-built_in">tint</span>(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#00f'</span>)
+  <span class="hljs-built_in">background</span>: <span class="hljs-built_in">tint</span>(<span class="hljs-string">'0.25'</span>, <span class="hljs-string">'#00f'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
 <span class="hljs-keyword">const</span> div = styled.div`
   <span class="hljs-built_in">background</span>: ${<span class="hljs-built_in">tint</span>(<span class="hljs-number">0.25</span>, <span class="hljs-string">'#00f'</span>)};
+  <span class="hljs-built_in">background</span>: ${<span class="hljs-built_in">tint</span>(<span class="hljs-string">'0.25'</span>, <span class="hljs-string">'#00f'</span>)};
 `
 
 <span class="hljs-comment">// CSS in JS Output</span>
 
 element {
+  <span class="hljs-built_in">background</span>: <span class="hljs-string">"#bfbfff"</span>;
   <span class="hljs-built_in">background</span>: <span class="hljs-string">"#bfbfff"</span>;
 }</pre>
     
@@ -5491,7 +5468,7 @@ element {
   </div>
   
 
-  <p>Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
+  <p>Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string for the provided color.
 This util is useful in case you only know on runtime which color object is
 used. Otherwise we recommend to rely on <code>rgb</code>, <code>rgba</code>, <code>hsl</code> or <code>hsla</code>.</p>
 
@@ -5606,7 +5583,7 @@ element {
   </div>
   
 
-  <p>Decreases the opacity of a color. Its range for the amount is between 0 to 1.</p>
+  <p>Decreases the opacity of the provided color, but the provided amount (between 0 and 1).</p>
 
 
   <div class='pre p1 fill-light mt0'>transparentize(amount: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), color: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -7470,7 +7447,9 @@ div {
   </div>
   
 
-  <p>A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.</p>
+  <p>Enables shorthand for directional-based properties. Accepts a property and up to four values that map to 'top', 'right', 'bottom', and 'left', respectively.
+You can pass a null property to get only the directional values.
+You can pass a null value for a direction to skip it.</p>
 
 
   <div class='pre p1 fill-light mt0'>directionalProperty(property: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, values: ...<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>? | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?)>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -7539,22 +7518,39 @@ div {
     
       
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-const styles = {
-  ...directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-string">'12px'</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)
+<span class="hljs-keyword">const</span> styles = {
+  ...directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)
+  ...directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-literal">undefined</span>)
+  ...directionalProperty(<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)
 }
 
 <span class="hljs-comment">// styled-components usage</span>
-const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
-  <span class="hljs-symbol">$</span>{directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-string">'12px'</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)}
-`
+<span class="hljs-keyword">const</span> div = styled.div<span class="hljs-string">`
+  <span class="hljs-subst">${directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)}</span>
+  <span class="hljs-subst">${directionalProperty(<span class="hljs-string">'padding'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-literal">undefined</span>)}</span>
+  <span class="hljs-subst">${directionalProperty(<span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'24px'</span>, <span class="hljs-string">'36px'</span>, <span class="hljs-string">'48px'</span>)}</span>
+`</span>
 
 <span class="hljs-comment">// CSS as JS Output</span>
 
-<span class="hljs-built-in">div</span> {
-  <span class="hljs-string">'paddingTop'</span>: <span class="hljs-string">'12px'</span>,
+div {
+  <span class="hljs-string">'paddingTop'</span>: <span class="hljs-number">0</span>,
   <span class="hljs-string">'paddingRight'</span>: <span class="hljs-string">'24px'</span>,
   <span class="hljs-string">'paddingBottom'</span>: <span class="hljs-string">'36px'</span>,
   <span class="hljs-string">'paddingLeft'</span>: <span class="hljs-string">'48px'</span>
+}
+
+div {
+  <span class="hljs-string">'paddingTop'</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">'paddingRight'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'paddingBottom'</span>: <span class="hljs-string">'36px'</span>,
+}
+
+div {
+  <span class="hljs-string">'top'</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">'right'</span>: <span class="hljs-string">'24px'</span>,
+  <span class="hljs-string">'bottom'</span>: <span class="hljs-string">'36px'</span>,
+  <span class="hljs-string">'left'</span>: <span class="hljs-string">'48px'</span>
 }</pre>
     
   
@@ -7586,11 +7582,10 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   </div>
   
 
-  <p>Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
-second argument to the function.</p>
+  <p>Convert a given pixel value to ems. The default base value is 16px, but can be modified to a provided base.</p>
 
 
-  <div class='pre p1 fill-light mt0'>em(pxval: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</div>
+  <div class='pre p1 fill-light mt0'>em</div>
   
     <p>
       Type:
@@ -7691,131 +7686,6 @@ element {
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='modularscale'>
-      modularScale
-    </h3>
-    
-    
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
-      <span></span>
-      </a>
-    
-  </div>
-  
-
-  <p>Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.</p>
-
-
-  <div class='pre p1 fill-light mt0'>modularScale(steps: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), ratio: Ratio): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-    <p>
-      Extends
-      
-        
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>steps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>base</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)
-            = <code>&#39;1em&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>ratio</span> <code class='quiet'>(Ratio
-            = <code>&#39;perfectFourth&#39;</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Properties</div>
-    <div>
-      
-    </div>
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Throws</div>
-    <ul>
-      
-    </ul>
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
-const styles = {
-   <span class="hljs-comment">// Increment two steps up the default scale</span>
-  <span class="hljs-string">'fontSize'</span>: modularScale(<span class="hljs-number">2</span>)
-}
-
-<span class="hljs-comment">// styled-components usage</span>
-const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
-   <span class="hljs-comment">// Increment two steps up the default scale</span>
-  fontSize: <span class="hljs-symbol">$</span>{modularScale(<span class="hljs-number">2</span>)}
-`
-
-<span class="hljs-comment">// CSS in JS Output</span>
-
-element {
-  <span class="hljs-string">'fontSize'</span>: <span class="hljs-string">'1.77689em'</span>
-}</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-        
-      
-        
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='rem'>
       rem
     </h3>
@@ -7828,8 +7698,7 @@ element {
   </div>
   
 
-  <p>Convert pixel value to rems. The default base value is 16px, but can be changed by passing a
-second argument to the function.</p>
+  <p>Convert a given pixel value to rems. The default base value is 16px, but can be modified to a provided base.</p>
 
 
   <div class='pre p1 fill-light mt0'>rem(pxval: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>), base: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>))</div>
@@ -7945,7 +7814,7 @@ element {
   </div>
   
 
-  <p>Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)</p>
+  <p>Strip the unit from a provided CSS value, returning just the number (or the original value if an invalid string was passed).</p>
 
 
   <div class='pre p1 fill-light mt0'>stripUnit(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
@@ -9226,7 +9095,10 @@ element {
   </div>
   
 
-  
+  <p>Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+This establishes a consistent measurement and spacial relationship between elements.</p>
+<p>Also exports 'ratioNames' to use as a standalone module.</p>
+
 
   <div class='pre p1 fill-light mt0'></div>
   
@@ -9272,6 +9144,24 @@ element {
 
   
     <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  <span class="hljs-string">'fontSize'</span>: modularScale(<span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  fontSize: <span class="hljs-symbol">$</span>{modularScale(<span class="hljs-number">2</span>)}
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+element {
+  <span class="hljs-string">'fontSize'</span>: <span class="hljs-string">'1.77689em'</span>
+}</pre>
     
   
 

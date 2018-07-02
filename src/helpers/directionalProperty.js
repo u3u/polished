@@ -28,7 +28,7 @@ function generateStyles(
 }
 
 /**
- * Enables shorthand for directional based properties. Accepts a property and up to four values that map to 'top', 'right', 'bottom', and 'left', respectively.
+ * Enables shorthand for directional-based properties. Accepts a property and up to four values that map to 'top', 'right', 'bottom', and 'left', respectively.
  * You can pass a null property to get only the directional values.
  * You can pass a null value for a direction to skip it.
  *

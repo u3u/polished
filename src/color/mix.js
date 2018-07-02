@@ -5,11 +5,7 @@ import parseToRgb from './parseToRgb'
 import curry from '../internalHelpers/_curry'
 
 /**
-<<<<<<< HEAD
  * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
-=======
- * Mixes two provided colors together by calculating the average of each of the RGB components weighted towards the first color by the provided weight.
->>>>>>> 1caa391... docs(color): Update color doc language
  *
  * @example
  * // Styles as object usage

@@ -39,25 +39,45 @@
   }
 
   /**
-   * A helper that enables shorthand for direction based properties. It accepts a property (hyphenated or camelCased) and up to four values that map to top, right, bottom, and left, respectively. You can optionally pass an empty string to get only the directional values as properties. You can also optionally pass a null argument for a directional value to ignore it.
+   * Enables shorthand for directional-based properties. Accepts a property and up to four values that map to 'top', 'right', 'bottom', and 'left', respectively.
+   * You can pass a null property to get only the directional values.
+   * You can pass a null value for a direction to skip it.
+   *
    * @example
    * // Styles as object usage
    * const styles = {
-   *   ...directionalProperty('padding', '12px', '24px', '36px', '48px')
+   *   ...directionalProperty('padding', 0, '24px', '36px', '48px')
+   *   ...directionalProperty('padding', 0, '24px', '36px', undefined)
+   *   ...directionalProperty(undefined, 0, '24px', '36px', '48px')
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   ${directionalProperty('padding', '12px', '24px', '36px', '48px')}
+   *   ${directionalProperty('padding', 0, '24px', '36px', '48px')}
+   *   ${directionalProperty('padding', 0, '24px', '36px', undefined)}
+   *   ${directionalProperty(undefined, 0, '24px', '36px', '48px')}
    * `
    *
    * // CSS as JS Output
    *
    * div {
-   *   'paddingTop': '12px',
+   *   'paddingTop': 0,
    *   'paddingRight': '24px',
    *   'paddingBottom': '36px',
    *   'paddingLeft': '48px'
+   * }
+   *
+   * div {
+   *   'paddingTop': 0,
+   *   'paddingRight': '24px',
+   *   'paddingBottom': '36px',
+   * }
+   *
+   * div {
+   *   'top': 0,
+   *   'right': '24px',
+   *   'bottom': '36px',
+   *   'left': '48px'
    * }
    */
 
@@ -88,7 +108,7 @@
   //      
 
   /**
-   * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+   * Strip the unit from a provided CSS value, returning just the number (or the original value if an invalid string was passed).
    *
    * @example
    * // Styles as object usage
@@ -155,11 +175,10 @@
   //      
 
   /**
-   * Convert pixel value to ems. The default base value is 16px, but can be changed by passing a
-   * second argument to the function.
-   * @function
+   * Convert a given pixel value to ems. The default base value is 16px, but can be modified to a provided base.
    * @param {string|number} pxval
    * @param {string|number} [base='16px']
+   *
    * @example
    * // Styles as object usage
    * const styles = {
@@ -201,10 +220,12 @@
     majorTwelfth: 3,
     doubleOctave: 4
 
-    /** */
-
     /**
-     * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+     * Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+     * This establishes a consistent measurement and spacial relationship between elements.
+     *
+     * Also exports 'ratioNames' to use as a standalone module.
+     *
      * @example
      * // Styles as object usage
      * const styles = {
@@ -219,7 +240,6 @@
      * `
      *
      * // CSS in JS Output
-     *
      * element {
      *   'fontSize': '1.77689em'
      * }
@@ -248,11 +268,11 @@
   //      
 
   /**
-   * Convert pixel value to rems. The default base value is 16px, but can be changed by passing a
-   * second argument to the function.
+   * Convert a given pixel value to rems. The default base value is 16px, but can be modified to a provided base.
    * @function
    * @param {string|number} pxval
    * @param {string|number} [base='16px']
+   *
    * @example
    * // Styles as object usage
    * const styles = {
@@ -272,6 +292,48 @@
    */
 
   var rem = /*#__PURE__*/pxtoFactory('rem');
+
+  //      
+  function getValueAndUnit(value) {
+    var cssRegex = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/;
+    if (typeof value !== 'string') return [value, ''];
+    var matchedValue = value.match(cssRegex);
+    if (matchedValue) return [parseFloat(value), matchedValue[2]];
+    return [value, undefined];
+  }
+
+  function between(fromSize, toSize) {
+    var minScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '320px';
+    var maxScreen = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '1200px';
+
+    var _getValueAndUnit = getValueAndUnit(fromSize),
+        unitlessFromSize = _getValueAndUnit[0],
+        fromSizeUnit = _getValueAndUnit[1];
+
+    var _getValueAndUnit2 = getValueAndUnit(toSize),
+        unitlessToSize = _getValueAndUnit2[0],
+        toSizeUnit = _getValueAndUnit2[1];
+
+    var _getValueAndUnit3 = getValueAndUnit(minScreen),
+        unitlessMinScreen = _getValueAndUnit3[0],
+        minScreenUnit = _getValueAndUnit3[1];
+
+    var _getValueAndUnit4 = getValueAndUnit(maxScreen),
+        unitlessMaxScreen = _getValueAndUnit4[0],
+        maxScreenUnit = _getValueAndUnit4[1];
+
+    if (typeof unitlessMinScreen !== 'number' || typeof unitlessMaxScreen !== 'number' || !minScreenUnit || !maxScreenUnit || minScreenUnit !== maxScreenUnit) {
+      throw new Error('minScreen and maxScreen must be provided as stringified numbers with the same units.');
+    }
+
+    if (typeof unitlessFromSize !== 'number' || typeof unitlessToSize !== 'number' || !fromSizeUnit || !toSizeUnit || fromSizeUnit !== toSizeUnit) {
+      throw new Error('fromSize and toSize must be provided as stringified numbers with the same units.');
+    }
+
+    var slope = (unitlessFromSize - unitlessToSize) / (unitlessMinScreen - unitlessMaxScreen);
+    var base = unitlessToSize - slope * unitlessMaxScreen;
+    return 'calc(' + base + fromSizeUnit + ' + ' + 100 * slope + 'vw)';
+  }
 
   //      
 
@@ -391,6 +453,72 @@
     }, {
       display: 'inline-flex'
     }];
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var taggedTemplateLiteralLoose = function (strings, raw) {
+    strings.raw = raw;
+    return strings;
+  };
+
+  //      
+
+  function fluidRange(cssProp, minScreen, maxScreen) {
+    if (!Array.isArray(cssProp) && typeof cssProp !== 'object' || cssProp === null) {
+      throw new Error('expects either an array of objects or a single object with the properties prop, fromSize, and toSize.');
+    }
+
+    if (Array.isArray(cssProp)) {
+      var mediaQueries = {};
+      var fallbacks = {};
+      for (var _iterator = cssProp, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+        var _babelHelpers$extends, _babelHelpers$extends2;
+
+        var _ref;
+
+        if (_isArray) {
+          if (_i >= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
+
+        var obj = _ref;
+
+        if (!obj.prop || !obj.fromSize || !obj.toSize) {
+          throw new Error('expects the objects in the first argument array to have the properties `prop`, `fromSize`, and `toSize`.');
+        }
+
+        fallbacks[obj.prop] = obj.fromSize;
+        mediaQueries['@media (min-width: ' + minScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + minScreen + ')'], (_babelHelpers$extends = {}, _babelHelpers$extends[obj.prop] = between(obj.fromSize, obj.toSize, minScreen, maxScreen), _babelHelpers$extends));
+        mediaQueries['@media (min-width: ' + maxScreen + ')'] = _extends({}, mediaQueries['@media (min-width: ' + maxScreen + ')'], (_babelHelpers$extends2 = {}, _babelHelpers$extends2[obj.prop] = obj.toSize, _babelHelpers$extends2));
+      }
+
+      return _extends({}, fallbacks, mediaQueries);
+    } else {
+      var _ref2, _ref3, _ref4;
+
+      if (!cssProp.prop || !cssProp.fromSize || !cssProp.toSize) {
+        throw new Error('expects the first argument object to have the properties `prop`, `fromSize`, and `toSize`.');
+      }
+
+      return _ref4 = {}, _ref4[cssProp.prop] = cssProp.fromSize, _ref4['@media (min-width: ' + minScreen + ')'] = (_ref2 = {}, _ref2[cssProp.prop] = between(cssProp.fromSize, cssProp.toSize, minScreen, maxScreen), _ref2), _ref4['@media (min-width: ' + maxScreen + ')'] = (_ref3 = {}, _ref3[cssProp.prop] = cssProp.toSize, _ref3), _ref4;
+    }
   }
 
   //      
@@ -613,25 +741,6 @@
 
     return "\n    @media only screen and (-webkit-min-device-pixel-ratio: " + ratio + "),\n    only screen and (min--moz-device-pixel-ratio: " + ratio + "),\n    only screen and (-o-min-device-pixel-ratio: " + ratio + "/1),\n    only screen and (min-resolution: " + Math.round(ratio * 96) + "dpi),\n    only screen and (min-resolution: " + ratio + "dppx)\n  ";
   }
-
-  var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  var taggedTemplateLiteralLoose = function (strings, raw) {
-    strings.raw = raw;
-    return strings;
-  };
 
   var _opinionatedRules, _unopinionatedRules;
 
@@ -1435,9 +1544,9 @@
   var hslaRegex = /^hsla\(\s*(\d{1,3})\s*,\s*(\d{1,3})%\s*,\s*(\d{1,3})%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/;
 
   /**
-   * Returns an RgbColor or RgbaColor object. This utility function is only useful
-   * if want to extract a color component. With the color util `toColorString` you
-   * can convert a RgbColor or RgbaColor object back to a string.
+   * Returns an RgbColor or RgbaColor object for the provided color.
+   * This utility function is only useful if want to extract a color component.
+   * With the color util `toColorString` you can convert a RgbColor or RgbaColor object back to a string.
    *
    * @example
    * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
@@ -1582,9 +1691,9 @@
   //      
 
   /**
-   * Returns an HslColor or HslaColor object. This utility function is only useful
-   * if want to extract a color component. With the color util `toColorString` you
-   * can convert a HslColor or HslaColor object back to a string.
+   * Returns an HslColor or HslaColor object for the provided color.
+   * This utility function is only useful if want to extract a color component.
+   * With the color util `toColorString` you can convert a HslColor or HslaColor object back to a string.
    *
    * @example
    * // Assigns `{ red: 255, green: 0, blue: 0 }` to color1
@@ -1620,7 +1729,7 @@
   //      
 
   /**
-   * Returns a string value for the color. The returned result is the smallest possible hex notation.
+   * Returns a string value for the provided color. The returned result is the smallest possible hex notation.
    *
    * @example
    * // Styles as object usage
@@ -1655,7 +1764,7 @@
   //      
 
   /**
-   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+   * Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.
    *
    * Can also be used to fade a color by passing a hex value or named CSS color along with an alpha value.
    *
@@ -1718,7 +1827,7 @@
   //      
 
   /**
-   * Returns a string value for the color. The returned result is the smallest possible hex notation.
+   * Returns a string value for the provided color. The returned result is the smallest possible hex notation.
    *
    * @example
    * // Styles as object usage
@@ -1753,7 +1862,7 @@
   //      
 
   /**
-   * Returns a string value for the color. The returned result is the smallest possible rgba or hex notation.
+   * Returns a string value for the provided color. The returned result is the smallest possible rgba or hex notation.
    *
    * @example
    * // Styles as object usage
@@ -1809,7 +1918,7 @@
   var errMsg = 'Passed invalid argument to toColorString, please pass a RgbColor, RgbaColor, HslColor or HslaColor object.';
 
   /**
-   * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string.
+   * Converts a RgbColor, RgbaColor, HslColor or HslaColor object to a color string for the provided color.
    * This util is useful in case you only know on runtime which color object is
    * used. Otherwise we recommend to rely on `rgb`, `rgba`, `hsl` or `hsla`.
    *
@@ -1879,9 +1988,7 @@
   //      
 
   /**
-   * Changes the hue of the color. Hue is a number between 0 to 360. The first
-   * argument for adjustHue is the amount of degrees the color is rotated along
-   * the color wheel.
+   * Adjusts the hue of the provided color by rotating the color wheel by the provided degree.
    *
    * @example
    * // Styles as object usage
@@ -1951,7 +2058,7 @@
   //      
 
   /**
-   * Returns a string value for the darkened color.
+   * Lightens the provided color by increasing its lightness by the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -1985,9 +2092,7 @@
   //      
 
   /**
-   * Decreases the intensity of a color. Its range is between 0 to 1. The first
-   * argument of the desaturate function is the amount by how much the color
-   * intensity should be decreased.
+   * Decreases the saturation of the provided color by the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2020,7 +2125,7 @@
   //      
 
   /**
-   * Returns a number (float) representing the luminance of a color.
+   * Returns a number (float) representing the luminance of the provided color.
    *
    * @example
    * // Styles as object usage
@@ -2062,7 +2167,7 @@
   //      
 
   /**
-   * Converts the color to a grayscale, by reducing its saturation to 0.
+   * Converts the provided color to grayscale, by reducing its saturation to 0.
    *
    * @example
    * // Styles as object usage
@@ -2092,7 +2197,7 @@
   //      
 
   /**
-   * Inverts the red, green and blue values of a color.
+   * Inverts the red, green and blue values of the provided color.
    *
    * @example
    * // Styles as object usage
@@ -2127,7 +2232,7 @@
   //      
 
   /**
-   * Returns a string value for the lightened color.
+   * Lightens the provided color by increasing its lightness by the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2161,24 +2266,17 @@
   //      
 
   /**
-   * Mixes two colors together by calculating the average of each of the RGB components.
-   *
-   * By default the weight is 0.5 meaning that half of the first color and half the second
-   * color should be used. Optionally the weight can be modified by providing a number
-   * as the first argument. 0.25 means that a quarter of the first color and three quarters
-   * of the second color should be used.
+   * Mixes the two provided colors together by calculating the average of each of the RGB components weighted to the first color by the provided weight.
    *
    * @example
    * // Styles as object usage
    * const styles = {
-   *   background: mix(0.5, '#f00', '#00f')
    *   background: mix(0.25, '#f00', '#00f')
    *   background: mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')
    * }
    *
    * // styled-components usage
    * const div = styled.div`
-   *   background: ${mix(0.5, '#f00', '#00f')};
    *   background: ${mix(0.25, '#f00', '#00f')};
    *   background: ${mix('0.5', 'rgba(255, 0, 0, 0.5)', '#00f')};
    * `
@@ -2186,16 +2284,11 @@
    * // CSS in JS Output
    *
    * element {
-   *   background: "#7f007f";
    *   background: "#3f00bf";
    *   background: "rgba(63, 0, 191, 0.75)";
    * }
    */
-  function mix() {
-    var weight = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.5;
-    var color = arguments[1];
-    var otherColor = arguments[2];
-
+  function mix(weight, color, otherColor) {
     var parsedColor1 = parseToRgb(color);
     var color1 = _extends({}, parsedColor1, {
       alpha: typeof parsedColor1.alpha === 'number' ? parsedColor1.alpha : 1
@@ -2205,7 +2298,7 @@
     var color2 = _extends({}, parsedColor2, {
       alpha: typeof parsedColor2.alpha === 'number' ? parsedColor2.alpha : 1
 
-      // The formular is copied from the original Sass implementation:
+      // The formula is copied from the original Sass implementation:
       // http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method
     });var alphaDelta = color1.alpha - color2.alpha;
     var x = parseFloat(weight) * 2 - 1;
@@ -2218,7 +2311,7 @@
       red: Math.floor(color1.red * weight1 + color2.red * weight2),
       green: Math.floor(color1.green * weight1 + color2.green * weight2),
       blue: Math.floor(color1.blue * weight1 + color2.blue * weight2),
-      alpha: color1.alpha + (color2.alpha - color1.alpha) * (weight / 1.0)
+      alpha: color1.alpha + (color2.alpha - color1.alpha) * (parseFloat(weight) / 1.0)
     };
 
     return rgba(mixedColor);
@@ -2229,8 +2322,7 @@
   //      
 
   /**
-   * Increases the opacity of a color. Its range for the amount is between 0 to 1.
-   *
+   * Adjusts the opacity (alpha) of the provided color by the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2269,7 +2361,7 @@
   //      
 
   /**
-   * Selects black or white for best contrast depending on the luminosity of the given color.
+   * Returns `#000` or `#fff` for the best contrast given the luminosity of the provided color.
    * Follows W3C specs for readability at https://www.w3.org/TR/WCAG20-TECHS/G18.html
    *
    * @example
@@ -2305,9 +2397,7 @@
   //      
 
   /**
-   * Increases the intensity of a color. Its range is between 0 to 1. The first
-   * argument of the saturate function is the amount by how much the color
-   * intensity should be increased.
+   * Intensifies the provided color by increasing its saturation by the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2341,8 +2431,7 @@
   //      
 
   /**
-   * Sets the hue of a color to the provided value. The hue range can be
-   * from 0 and 359.
+   * Sets the hue of the provided color to the provided value (between 0 and 359).
    *
    * @example
    * // Styles as object usage
@@ -2374,8 +2463,7 @@
   //      
 
   /**
-   * Sets the lightness of a color to the provided value. The lightness range can be
-   * from 0 and 1.
+   * Sets the lightness of the provided color to the provided value (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2407,8 +2495,7 @@
   //      
 
   /**
-   * Sets the saturation of a color to the provided value. The lightness range can be
-   * from 0 and 1.
+   * Sets the saturation of the provided color to the provided value (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -2440,24 +2527,27 @@
   //      
 
   /**
-   * Shades a color by mixing it with black. `shade` can produce
-   * hue shifts, where as `darken` manipulates the luminance channel and therefore
-   * doesn't produce hue shifts.
+   * Shades the provided color by the provided percentage by mixing it with black.
+   *
+   * `shade` can produce hue shifts, where as `darken` manipulates the luminance channel and therefore doesn't produce hue shifts.
    *
    * @example
    * // Styles as object usage
    * const styles = {
    *   background: shade(0.25, '#00f')
+   *   background: shade('0.25', '#00f')
    * }
    *
    * // styled-components usage
    * const div = styled.div`
    *   background: ${shade(0.25, '#00f')};
+   *   background: ${shade('0.25', '#00f')};
    * `
    *
    * // CSS in JS Output
    *
    * element {
+   *   background: "#00003f";
    *   background: "#00003f";
    * }
    */
@@ -2471,24 +2561,27 @@
   //      
 
   /**
-   * Tints a color by mixing it with white. `tint` can produce
-   * hue shifts, where as `lighten` manipulates the luminance channel and therefore
-   * doesn't produce hue shifts.
+   * Tint the provided color by the provided percentage by mixing it with white.
+   *
+   * `tint` can produce hue shifts, where as `lighten` manipulates the luminance channel and thereforevdoesn't produce hue shifts.
    *
    * @example
    * // Styles as object usage
    * const styles = {
    *   background: tint(0.25, '#00f')
+   *   background: tint('0.25', '#00f')
    * }
    *
    * // styled-components usage
    * const div = styled.div`
    *   background: ${tint(0.25, '#00f')};
+   *   background: ${tint('0.25', '#00f')};
    * `
    *
    * // CSS in JS Output
    *
    * element {
+   *   background: "#bfbfff";
    *   background: "#bfbfff";
    * }
    */
@@ -2502,8 +2595,7 @@
   //      
 
   /**
-   * Decreases the opacity of a color. Its range for the amount is between 0 to 1.
-   *
+   * Decreases the opacity of the provided color, but the provided amount (between 0 and 1).
    *
    * @example
    * // Styles as object usage
@@ -3178,6 +3270,7 @@
   exports.animation = animation;
   exports.backgroundImages = backgroundImages;
   exports.backgrounds = backgrounds;
+  exports.between = between;
   exports.border = border;
   exports.borderColor = borderColor;
   exports.borderRadius = borderRadius;
@@ -3192,6 +3285,7 @@
   exports.directionalProperty = directionalProperty;
   exports.ellipsis = ellipsis;
   exports.em = em;
+  exports.fluidRange = fluidRange;
   exports.fontFace = fontFace;
   exports.getLuminance = getLuminance;
   exports.grayscale = grayscale;

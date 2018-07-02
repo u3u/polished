@@ -1,6 +1,7 @@
 // @flow
 
 import stripUnit from './stripUnit'
+import type { ModularScaleRatio } from '../types/modularScaleRatio'
 
 const ratioNames = {
   minorSecond: 1.067,
@@ -22,29 +23,11 @@ const ratioNames = {
   doubleOctave: 4,
 }
 
-/** */
-type Ratio =
-  | number
-  | 'minorSecond'
-  | 'majorSecond'
-  | 'minorThird'
-  | 'majorThird'
-  | 'perfectFourth'
-  | 'augFourth'
-  | 'perfectFifth'
-  | 'minorSixth'
-  | 'goldenSection'
-  | 'majorSixth'
-  | 'minorSeventh'
-  | 'majorSeventh'
-  | 'octave'
-  | 'majorTenth'
-  | 'majorEleventh'
-  | 'majorTwelfth'
-  | 'doubleOctave'
-
 /**
- * Establish consistent measurements and spacial relationships throughout your projects by incrementing up or down a defined scale. We provide a list of commonly used scales as pre-defined variables, see below.
+ * Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+ * This establishes a consistent measurement and spacial relationship between elements.
+ *
+ * Also exports 'ratioNames' to use as a standalone module.
  *
  * @example
  * // Styles as object usage
@@ -60,7 +43,6 @@ type Ratio =
  * `
  *
  * // CSS in JS Output
- *
  * element {
  *   'fontSize': '1.77689em'
  * }
@@ -68,7 +50,7 @@ type Ratio =
 function modularScale(
   steps: number,
   base?: number | string = '1em',
-  ratio?: Ratio = 'perfectFourth',
+  ratio?: ModularScaleRatio = 'perfectFourth',
 ): string {
   if (typeof steps !== 'number') {
     throw new Error(

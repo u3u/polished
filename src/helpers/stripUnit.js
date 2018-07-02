@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Strip the unit from a given CSS value, returning just the number. (or the original value if an invalid string was passed)
+ * Strip the unit from a provided CSS value, returning just the number (or the original value if an invalid string was passed).
  *
  * @example
  * // Styles as object usage
