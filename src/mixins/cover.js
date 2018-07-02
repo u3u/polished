@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+ * CSS to fully cover an area that can be optionally provided an offset to determine the padding around the coverage area.
  *
  * @example
  * // Styles as object usage

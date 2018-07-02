@@ -74,6 +74,16 @@
             
               
               <li><a
+                href='#between'
+                class="">
+                between
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
                 href='#clearfix'
                 class="">
                 clearFix
@@ -97,6 +107,16 @@
                 href='#ellipsis'
                 class="">
                 ellipsis
+                
+              </a>
+              
+              </li>
+            
+              
+              <li><a
+                href='#fluidrange'
+                class="">
+                fluidRange
                 
               </a>
               
@@ -892,6 +912,140 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='between'>
+      between
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+This establishes a consistent measurement and spacial relationship between elements.</p>
+<p>Also exports 'ratioNames' to use as a standalone module.</p>
+
+
+  <div class='pre p1 fill-light mt0'>between(fromSize: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, toSize: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, minScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, maxScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fromSize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>toSize</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>minScreen</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;320px&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>maxScreen</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>&#39;1200px&#39;</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  <span class="hljs-string">'fontSize'</span>: modularScale(<span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  fontSize: <span class="hljs-symbol">$</span>{modularScale(<span class="hljs-number">2</span>)}
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+element {
+  <span class="hljs-string">'fontSize'</span>: <span class="hljs-string">'1.77689em'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='clearfix'>
       clearFix
     </h3>
@@ -1012,7 +1166,7 @@
   </div>
   
 
-  <p>CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".</p>
+  <p>CSS to fully cover an area that can be optionally provided an offset to determine the padding around the coverage area.</p>
 
 
   <div class='pre p1 fill-light mt0'>cover(offset: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -1122,7 +1276,7 @@ div: {
   </div>
   
 
-  <p>CSS to represent truncated text with an ellipsis.</p>
+  <p>CSS to represent truncated text with an ellipsis that can be provided an optional width to truncate after (defaults to 100%).</p>
 
 
   <div class='pre p1 fill-light mt0'>ellipsis(width: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>></div>
@@ -1203,6 +1357,130 @@ const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in
   <span class="hljs-string">'textOverflow'</span>: <span class="hljs-string">'ellipsis'</span>,
   <span class="hljs-string">'whiteSpace'</span>: <span class="hljs-string">'nowrap'</span>,
   <span class="hljs-string">'wordWrap'</span>: <span class="hljs-string">'normal'</span>
+}</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+      
+        
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='fluidrange'>
+      fluidRange
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='[object Object]'>
+      <span></span>
+      </a>
+    
+  </div>
+  
+
+  <p>Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+This establishes a consistent measurement and spacial relationship between elements.</p>
+<p>Also exports 'ratioNames' to use as a standalone module.</p>
+
+
+  <div class='pre p1 fill-light mt0'>fluidRange(cssProp: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), minScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, maxScreen: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+    <p>
+      Extends
+      
+        
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cssProp</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>minScreen</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>maxScreen</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+    </div>
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
+    
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Throws</div>
+    <ul>
+      
+    </ul>
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// Styles as object usage</span>
+const styles = {
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  <span class="hljs-string">'fontSize'</span>: modularScale(<span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment">// styled-components usage</span>
+const <span class="hljs-built-in">div</span> = styled.<span class="hljs-built-in">div</span>`
+   <span class="hljs-comment">// Increment two steps up the default scale</span>
+  fontSize: <span class="hljs-symbol">$</span>{modularScale(<span class="hljs-number">2</span>)}
+`
+
+<span class="hljs-comment">// CSS in JS Output</span>
+element {
+  <span class="hljs-string">'fontSize'</span>: <span class="hljs-string">'1.77689em'</span>
 }</pre>
     
   
@@ -1538,8 +1816,7 @@ injectGlobal`${
   </div>
   
 
-  <p>CSS to hide content visually but remain accessible to screen readers.
-from <a href="https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121">HTML5 Boilerplate</a></p>
+  <p>CSS to hide content visually but remain accessible to screen readers (HTML5 Boilerplate | MIT License |github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121).</p>
 
 
   <div class='pre p1 fill-light mt0'>hideVisually(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -1645,7 +1922,7 @@ from <a href="https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70
   </div>
   
 
-  <p>Generates a media query to target HiDPI devices.</p>
+  <p>Generates a media query to target HiDPI devices at a optionally provided ratio (defaults to 1.3).</p>
 
 
   <div class='pre p1 fill-light mt0'>hiDPI(ratio: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
@@ -1759,7 +2036,7 @@ const div = styled.div`
   </div>
   
 
-  <p>CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)</p>
+  <p>CSS to normalize abnormalities across browsers that can optionally included a set of opinionated rules (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css).</p>
 
 
   <div class='pre p1 fill-light mt0'>normalize(excludeOpinionated: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -1863,7 +2140,7 @@ html {
   </div>
   
 
-  <p>CSS to style the placeholder pseudo-element.</p>
+  <p>CSS to target the placeholder pseudo-element with the provided styles within an optionally provided parent (defaults to the elements parent).</p>
 
 
   <div class='pre p1 fill-light mt0'>placeholder(styles: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -2297,7 +2574,7 @@ a _2x.png filename suffix by default.</p>
   </div>
   
 
-  <p>CSS to style the selection pseudo-element.</p>
+  <p>CSS to target the selection pseudo-element with the provided styles within an optionally provided parent (defaults to global).</p>
 
 
   <div class='pre p1 fill-light mt0'>selection(styles: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parent: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
@@ -2683,7 +2960,7 @@ div:</span> {
   </div>
   
 
-  <p>Provides an easy way to change the <code>wordWrap</code> property.</p>
+  <p>Consistently sets word wrap across browsers to an optionally provided wrap (defaults to break-word).</p>
 
 
   <div class='pre p1 fill-light mt0'>wordWrap(wrap: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>

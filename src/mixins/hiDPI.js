@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Generates a media query to target HiDPI devices.
+ * Generates a media query to target HiDPI devices at a optionally provided ratio (defaults to 1.3).
  *
  * @example
  * // Styles as object usage

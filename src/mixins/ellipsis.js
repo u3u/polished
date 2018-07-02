@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to represent truncated text with an ellipsis.
+ * CSS to represent truncated text with an ellipsis that can be provided an optional width to truncate after (defaults to 100%).
  *
  * @example
  * // Styles as object usage

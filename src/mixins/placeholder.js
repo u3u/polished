@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to style the placeholder pseudo-element.
+ * CSS to target the placeholder pseudo-element with the provided styles within an optionally provided parent (defaults to the elements parent).
  *
  * @example
  * // Styles as object usage

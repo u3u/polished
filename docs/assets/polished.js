@@ -302,6 +302,30 @@
     return [value, undefined];
   }
 
+  /**
+   * Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+   * This establishes a consistent measurement and spacial relationship between elements.
+   *
+   * Also exports 'ratioNames' to use as a standalone module.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *    // Increment two steps up the default scale
+   *   'fontSize': modularScale(2)
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *    // Increment two steps up the default scale
+   *   fontSize: ${modularScale(2)}
+   * `
+   *
+   * // CSS in JS Output
+   * element {
+   *   'fontSize': '1.77689em'
+   * }
+   */
   function between(fromSize, toSize) {
     var minScreen = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '320px';
     var maxScreen = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '1200px';
@@ -376,7 +400,7 @@
   //      
 
   /**
-   * CSS to fully cover an area. Can optionally be passed an offset to act as a "padding".
+   * CSS to fully cover an area that can be optionally provided an offset to determine the padding around the coverage area.
    *
    * @example
    * // Styles as object usage
@@ -414,7 +438,7 @@
   //      
 
   /**
-   * CSS to represent truncated text with an ellipsis.
+   * CSS to represent truncated text with an ellipsis that can be provided an optional width to truncate after (defaults to 100%).
    *
    * @example
    * // Styles as object usage
@@ -476,6 +500,30 @@
 
   //      
 
+  /**
+   * Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+   * This establishes a consistent measurement and spacial relationship between elements.
+   *
+   * Also exports 'ratioNames' to use as a standalone module.
+   *
+   * @example
+   * // Styles as object usage
+   * const styles = {
+   *    // Increment two steps up the default scale
+   *   'fontSize': modularScale(2)
+   * }
+   *
+   * // styled-components usage
+   * const div = styled.div`
+   *    // Increment two steps up the default scale
+   *   fontSize: ${modularScale(2)}
+   * `
+   *
+   * // CSS in JS Output
+   * element {
+   *   'fontSize': '1.77689em'
+   * }
+   */
   function fluidRange(cssProp, minScreen, maxScreen) {
     if (!Array.isArray(cssProp) && typeof cssProp !== 'object' || cssProp === null) {
       throw new Error('expects either an array of objects or a single object with the properties prop, fromSize, and toSize.');
@@ -660,8 +708,7 @@
   //      
 
   /**
-   * CSS to hide content visually but remain accessible to screen readers.
-   * from [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121)
+   * CSS to hide content visually but remain accessible to screen readers (HTML5 Boilerplate | MIT License |github.com/h5bp/html5-boilerplate/blob/9a176f57af1cfe8ec70300da4621fb9b07e5fa31/src/css/main.css#L121).
    *
    * @example
    * // Styles as object usage
@@ -708,7 +755,7 @@
   //      
 
   /**
-   * Generates a media query to target HiDPI devices.
+   * Generates a media query to target HiDPI devices at a optionally provided ratio (defaults to 1.3).
    *
    * @example
    * // Styles as object usage
@@ -880,7 +927,7 @@
   }
 
   /**
-   * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
+   * CSS to normalize abnormalities across browsers that can optionally included a set of opinionated rules (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css).
    *
    * @example
    * // Styles as object usage
@@ -906,7 +953,7 @@
   //      
 
   /**
-   * CSS to style the placeholder pseudo-element.
+   * CSS to target the placeholder pseudo-element with the provided styles within an optionally provided parent (defaults to the elements parent).
    *
    * @example
    * // Styles as object usage
@@ -1078,7 +1125,7 @@
   //      
 
   /**
-   * CSS to style the selection pseudo-element.
+   * CSS to target the selection pseudo-element with the provided styles within an optionally provided parent (defaults to global).
    *
    * @example
    * // Styles as object usage
@@ -1284,7 +1331,7 @@
   //      
 
   /**
-   * Provides an easy way to change the `wordWrap` property.
+   * Consistently sets word wrap across browsers to an optionally provided wrap (defaults to break-word).
    *
    * @example
    * // Styles as object usage

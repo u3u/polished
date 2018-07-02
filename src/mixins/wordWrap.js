@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * Provides an easy way to change the `wordWrap` property.
+ * Consistently sets word wrap across browsers to an optionally provided wrap (defaults to break-word).
  *
  * @example
  * // Styles as object usage

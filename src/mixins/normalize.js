@@ -222,7 +222,7 @@ function mergeRules(baseRules: Object, additionalRules: Object): Object {
 }
 
 /**
- * CSS to normalize abnormalities across browsers (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css)
+ * CSS to normalize abnormalities across browsers that can optionally included a set of opinionated rules (normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css).
  *
  * @example
  * // Styles as object usage

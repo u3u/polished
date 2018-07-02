@@ -7,6 +7,30 @@ function getValueAndUnit(value: string): [number | string, string | void] {
   return [value, undefined]
 }
 
+/**
+ * Increment a provided number of steps up or down a provided scale (defaults to 'perfectFourth') from a provided base (defaults to 1em).
+ * This establishes a consistent measurement and spacial relationship between elements.
+ *
+ * Also exports 'ratioNames' to use as a standalone module.
+ *
+ * @example
+ * // Styles as object usage
+ * const styles = {
+ *    // Increment two steps up the default scale
+ *   'fontSize': modularScale(2)
+ * }
+ *
+ * // styled-components usage
+ * const div = styled.div`
+ *    // Increment two steps up the default scale
+ *   fontSize: ${modularScale(2)}
+ * `
+ *
+ * // CSS in JS Output
+ * element {
+ *   'fontSize': '1.77689em'
+ * }
+ */
 function between(
   fromSize: string,
   toSize: string,

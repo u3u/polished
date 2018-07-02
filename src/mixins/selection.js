@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * CSS to style the selection pseudo-element.
+ * CSS to target the selection pseudo-element with the provided styles within an optionally provided parent (defaults to global).
  *
  * @example
  * // Styles as object usage
